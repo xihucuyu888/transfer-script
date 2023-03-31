@@ -1,0 +1,28 @@
+{
+    "rpcUrl": "RPC_URL",
+    "privateKey": "PRIVATE_KEY",
+    "targets": [
+      { "address": "0x123...", "amount": 1 },
+      { "address": "0x456...", "amount": 2 },
+      { "address": "0x789...", "amount": 3 }
+    ],
+    "contracts":[
+      {
+        "token":"USDC",
+        "address": "ERC20_CONTRACT_ADDRESS_1",
+        "abi": [
+          "function balanceOf(address) view returns (uint)",
+          "function transfer(address to, uint amount) returns (bool)"
+        ]
+      },
+      {
+        "token":"USDT",
+        "address": "ERC20_CONTRACT_ADDRESS_2",
+        "abi": [
+          "function balanceOf(address) view returns (uint)",
+          "function transfer(address to, uint amount) returns (bool)"
+        ]
+      }
+    ]
+  }
+  

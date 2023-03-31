@@ -1,0 +1,23 @@
+{
+  "name": "transfer-script",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xihucuyu888/transfer-script.git"
+  },
+  "author": "shiyu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xihucuyu888/transfer-script/issues"
+  },
+  "homepage": "https://github.com/xihucuyu888/transfer-script#readme",
+  "dependencies": {
+    "bignumber.js": "^9.1.1",
+    "ethers": "^6.2.3"
+  }
+}

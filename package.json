@@ -18,6 +18,7 @@
   "homepage": "https://github.com/xihucuyu888/transfer-script#readme",
   "dependencies": {
     "bignumber.js": "^9.1.1",
-    "ethers": "^6.2.3"
+    "ethers": "^6.2.3",
+    "tronweb": "^5.1.0"
   }
 }

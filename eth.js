@@ -1,4 +1,4 @@
-const config = require('./config.json');
+const config = require('./config.eth.json');
 const { ethers } = require('ethers');
 const BigNumber = require('bignumber.js')
 
@@ -75,4 +75,4 @@ async function transferERC20(token) {
 }
 
 //transferETH()
-transferERC20('HSK')
+transferERC20('USDTG')

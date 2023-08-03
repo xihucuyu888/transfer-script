@@ -34,7 +34,7 @@ async function send_trc20(to_address, amount, token) {
     }
 }
 
-  async function transferTRC20(token) {
+async function transferTRC20(token) {
     const tokeninfo = config.contracts.find(contract => contract.token === token);
     for (let i = 0; i < config.targets.length; i++) {
         const { address, amount } = config.targets[i];
@@ -43,5 +43,17 @@ async function send_trc20(to_address, amount, token) {
     }
   }
 
-//transferTRX()
-transferTRC20('USDT')
+async function transfer(token) {
+    if (token){
+      if (token === 'TRX') {
+        await transferTRX()
+      }else {
+        await transferTRC20(token)
+      }
+    }else{
+      console.log("you should input a token name")
+    }   
+}
+
+const token = process.argv[2]
+transfer(token)

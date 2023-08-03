@@ -1,4 +1,4 @@
-const config = require('./config.eth.json');
+const config = require('./config.arb.json');
 const ethBasic = require('./ethBasic');
 
 const eth = new ethBasic(config)

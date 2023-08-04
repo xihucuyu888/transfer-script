@@ -29,7 +29,7 @@ async sendEth(targets) {
           to: address,
           value: ethers.parseEther(amount.toString())
         });
-        console.log('ETH Transaction Hash:', tx.hash);
+        console.log(`Transfer ${amount} ETH to ${address}. Transaction Hash: ${tx.hash}`);
     }
   }
 

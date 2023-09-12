@@ -1,4 +1,5 @@
 const { ethers } = require('ethers');
+const _ = require('lodash')
 const BigNumber = require('bignumber.js');
 const { connect } = require('http2');
 
@@ -33,7 +34,7 @@ async sendEth(targets) {
     }
   }
 
-async sendErc20(token, contract, targets) {
+async sendErc20(token, contract, targets, wallet) {
     // 执行ERC20智能合约转账
     for (let i = 0; i < targets.length; i++) {
       const { address, amount } = targets[i];
@@ -53,15 +54,17 @@ async sendErc20(token, contract, targets) {
     }
   }
 
-async transferERC20(token) {
+async transferERC20(token,targets) {
       const connectedWallet = this.getEthers()
-      const { address, abi, targets } = this.config.contracts[token];
+      const { address } = _.find(this.config.contracts,{token:token})
+      const abi = this.config.abi
   
       // 实例化ERC20智能合约
       const contract = new ethers.Contract(address, abi, connectedWallet);
+
   
       // 执行ERC20智能合约转账
-      await this.sendErc20(contract, targets);
+      await this.sendErc20(token, contract, targets,connectedWallet);
     }
 
 
@@ -70,7 +73,7 @@ async transfer(token) {
       if (token === 'ETH') {
         await this.sendEth(this.config.targets)
       }else {
-        await this.transferERC20(token)
+        await this.transferERC20(token,this.config.targets)
       }
     }else{
       console.log("you should input a token name")

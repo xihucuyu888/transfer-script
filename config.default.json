@@ -6,22 +6,19 @@
       { "address": "0x456...", "amount": 2 },
       { "address": "0x789...", "amount": 3 }
     ],
+    "abi":[
+      "function balanceOf(address) view returns (uint)",
+      "function transfer(address to, uint amount) returns (bool)",
+      "function decimals() view returns (uint8)"
+    ],
     "contracts":[
       {
         "token":"USDC",
-        "address": "ERC20_CONTRACT_ADDRESS_1",
-        "abi": [
-          "function balanceOf(address) view returns (uint)",
-          "function transfer(address to, uint amount) returns (bool)"
-        ]
+        "address": "ERC20_CONTRACT_ADDRESS_1"
       },
       {
         "token":"USDT",
-        "address": "ERC20_CONTRACT_ADDRESS_2",
-        "abi": [
-          "function balanceOf(address) view returns (uint)",
-          "function transfer(address to, uint amount) returns (bool)"
-        ]
+        "address": "ERC20_CONTRACT_ADDRESS_2"
       }
     ]
   }

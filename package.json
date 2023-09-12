@@ -20,5 +20,8 @@
     "bignumber.js": "^9.1.1",
     "ethers": "^6.2.3",
     "tronweb": "^5.1.0"
+  },
+  "devDependencies": {
+    "lodash": "^4.17.21"
   }
 }

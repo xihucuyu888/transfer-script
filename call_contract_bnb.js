@@ -2,20 +2,20 @@ const { ethers } = require("ethers");
 
 const privateKey = process.env.PRIVATE_KEY
 const privateKey2 = process.env.PRIVATE_KEY2
-const infuraNode = process.env.SEPOLIA_NODE
+const infuraNode = "https://bsc-testnet-rpc.publicnode.com"
 
 const provider = new ethers.JsonRpcProvider(infuraNode);
 const wallet = new ethers.Wallet(privateKey, provider); // 使用你的私钥
 const wallet2 = new ethers.Wallet(privateKey2, provider); 
 // ERC20合约地址
-const tokenAddress = "0x56dc763551F106c9EA80CCA0521f7a7Bca79eC9E"
-const tokenName = 'USDC'
+const tokenAddress = "0x9f8EC8b0AeeE4f3cFA37a2a4D08B23c36d9F147A"
+const tokenName = 'ZKGLD'
 // 转账接受地址
-const recipientAddress = "0x5C4758288AA6C87C8a3461BD2d9e41D5641F070a";
+const recipientAddress = "0x0fc3af1c1c9628d46158cae49865e665c619a14d";
 
 async function sendERC20Transaction() {
   const abi = ["function transfer(address to, uint256 amount) public returns (bool)"];
-  const amount = 100;
+  const amount = 100000;
   
   // 创建 ERC20 代币合约实例
   const tokenContract = new ethers.Contract(tokenAddress, abi, wallet);

@@ -1,7 +1,7 @@
 const { ethers } = require("ethers");
 
 const privateKey = process.env.PRIVATE_KEY
-const infuraNode = process.env.GOERLI_NODE
+const infuraNode = process.env.SEPOLIA_NODE
 
 const provider = new ethers.JsonRpcProvider(infuraNode);
 const wallet = new ethers.Wallet(privateKey, provider); // 使用你的私钥

@@ -74,7 +74,7 @@ async function main(){
   for (let i = 0; i < addressList.length; i += batchSize) {
     const batch = addressList.slice(i, i + batchSize);
     // 调用智能合约方法
-    tx = await contract.transferETH(batch, amount)
+    let tx = await contract.transferETH(batch, amount)
     console.log(`batch ${i}-${i + batch.length-1}:`,tx.hash)
   }
 }

@@ -1,4 +1,5 @@
 const TronWeb = require('tronweb');
+const { BigNumber } = require("bignumber.js");
 const fs = require('fs');
 
 const addressList = fs.readFileSync('./address_list_trx.txt', 'utf-8').split('\n').filter(Boolean);
@@ -23,13 +24,18 @@ const contract = await tronWeb.contract(contractABI, contractAddress);
 
 
 const USDT = 'TXLAQ63Xg1NAzckPwKHvzw7CSEmLMEqcdj';
-const amount = 1000000; 
+const value = 1
+const decimal = 1e6
+const amount = new BigNumber(value).multipliedBy(decimal).toString()
 const batchSize = 100
+
 
 for (let i = 0; i < addressList.length; i += batchSize) {
     const batch = addressList.slice(i, i + batchSize);
     // 调用智能合约方法
-    tx = await contract.transferTRC20(USDT, batch, amount).send()
+    let tx = await contract.transferTRC20(USDT, batch, amount).send({
+      feeLimit:100_000_000
+    })
     console.log(tx)
 }
 }

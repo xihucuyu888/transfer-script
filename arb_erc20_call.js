@@ -2,7 +2,7 @@ const { BigNumber } = require("bignumber.js");
 const { ethers } = require("ethers");
 const fs = require('fs');
 const privateKey = process.env.PRIVATE_KEY
-const infuraNode = process.env.SEPOLIA_NODE
+const infuraNode = process.env.ARB_NODE
 
 const provider = new ethers.JsonRpcProvider(infuraNode);
 const wallet = new ethers.Wallet(privateKey, provider);
@@ -61,11 +61,9 @@ const abi = [
 ]
 
 // 批量转账合约
-const contractAddress = '0x53B99e66a655A9e5953fF19Ffa248154e7e9765b';
+const contractAddress = '0x0e52Dc5349EE5da0645Cd340604251cDCb34ce4c';
 // ERC20合约地址
-const USDT = '0x0093b27dA6a4A611f31e5c00A89897E874132E66';
-const SAND = '0x665F5b021cB0a0ABB52a2F632e94433749E92e69'
-const RNDR = '0x96DD014A322295b47dEfEfbAC22baD572A33AA97'
+const ARBUSDT = '0xB308696B9c3b390A40C4E65D0f38264f4D52CBF8';
 // 转账币种额度
 const value = 1
 // ERC20精度
@@ -73,14 +71,14 @@ const decimal = 1e6
 
 const amount = new BigNumber(value).multipliedBy(decimal).toString()
 const batchSize = 500;
-const addressList = fs.readFileSync('./address_list_eth.txt', 'utf-8').split('\n').filter(Boolean);
+const addressList = fs.readFileSync('./address_list_arb.txt', 'utf-8').split('\n').filter(Boolean);
 
 async function main(){
   const contract = new ethers.Contract(contractAddress, abi, wallet);
   for (let i = 0; i < addressList.length; i += batchSize) {
     const batch = addressList.slice(i, i + batchSize);
     // 调用智能合约方法
-    let tx = await contract.transferERC20(USDT, batch, amount)
+    let tx = await contract.transferERC20(ARBUSDT, batch, amount)
     console.log(`batch ${i}-${i + batch.length-1}:`,tx.hash)
   }
 }

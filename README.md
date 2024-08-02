@@ -27,4 +27,7 @@ PRIVATE_KEY=0x00 node trx_batch.js
 
 PRIVATE_KEY=0x00 ARB_NODE=https://xxx node arb_erc20_call.js
 
-PRIVATE_KEY=0x00 SEPOLIA_NODE=https://xxx node arb_eth_call.js
+PRIVATE_KEY=0x00 ARB_NODE=https://xxx node arb_eth_call.js
+
+### 4. batch transfer BTC (WIF privatekey)
+PRIVATE_KEY=0x00 node btc_batch.js 

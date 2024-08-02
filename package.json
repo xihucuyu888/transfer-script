@@ -25,6 +25,8 @@
     "@eslint/js": "^9.6.0",
     "eslint": "^9.6.0",
     "globals": "^15.7.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "bitcoinjs-lib": "4.0.3",
+    "coinselect": "^3.1.13"
   }
 }
